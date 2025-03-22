@@ -1,3 +1,28 @@
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to handle 'Créer' button click
+    document.querySelectorAll(".create").forEach(button => {
+        button.addEventListener("click", function () {
+            alert("Un nouveau compte a été créé !");
+        });
+    });
+
+    // Function to handle 'Modifier' button click
+    document.querySelectorAll(".modify").forEach(button => {
+        button.addEventListener("click", function () {
+            alert("Modification en cours !");
+        });
+    });
+
+    // Function to handle 'Supprimer' button click
+    document.querySelectorAll(".delete").forEach(button => {
+        button.addEventListener("click", function () {
+            if (confirm("Voulez-vous vraiment supprimer cet élément ?")) {
+                this.closest("tr").remove();
+                alert("Élément supprimé !");
+            }
+        });
+    });
+});
 
 
  // Nav barre
@@ -5,7 +30,10 @@
     let sidebar = document.getElementById("sidebar");
     document.getElementById("sidebar").classList.toggle("open");
     sidebar.classList.toggle("active");
+
 }
+
+
 
 // agrandissement de limage 
 
@@ -66,8 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-    
 
 
 
