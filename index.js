@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     // Function to handle 'Créer' button click
     document.querySelectorAll(".create").forEach(button => {
