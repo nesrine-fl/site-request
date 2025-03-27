@@ -1,23 +1,23 @@
 body {
   font-family: sans-serif;
   margin: 0;
-  padding: 20;
+  padding: 20 px;
   color: white;
   text-align:center;
   background-color: #7162E1};
 
-header {
-  background-color: #7162E1;
-  color: #ffffff;
-  padding: 10px 20px;
-  margin-top: 20px;
-  display: flex;
-  justify-content:center;
-  align-items: center;
-  width:100%;
-  height:80px;
-}
-
+  header {
+    background-color: #7162E1;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+  }
+  
 /* Barre de navigation  */
 header {
   display: flex;
@@ -25,61 +25,8 @@ header {
   align-items: right;
   padding: 15px 30px;
 
-}
-/* Sidebar Styling */
-.sidebar {
-    position: fixed;
-    left: -220px; /* Initially hidden */
-    top: 0;
-    width: 220px;
-    height: 100vh;
-    background-color: white;
-    padding: 20px;
-    overflow-y: auto;
-    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
-    transition: left 0.3s ease-in-out;
-}
 
-
-.sidebar.active {
-    left: 0; /* Show when active */
 }
-
-.sidebar-menu {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar-menu li {
-    margin: 15px 0;
-}
-
-.sidebar-menu a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
-}
-
-.sidebar-menu img {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-}
-
-/* Sidebar Footer */
-.sidebar-footer {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid #ddd;
-}
-
-.logout {
-    color: red;
-    font-weight: bold;
-}
-
 /* Search Bar */
 .search-bar {
     display: flex;
@@ -131,96 +78,245 @@ main {
 
 /* Barre latérale */
 .sidebar {
+  height: 100%;
+  width: 0;
   position: fixed;
   top: 0;
-  left: -250px;
-  width: 200px;
-  height: 100%;
-  background: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  transition: 0.3s;
+  left: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  color: #333;
+  transition: left 0.3s ease-in-out;
   z-index: 1000;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #ddd;
 }
 
-/* Bouton de fermeture */
+
+/* Style for icons */
+.sidebar ul li a i,
+.sidebar-footer a i {
+  margin-right: 10px;
+  font-size: 18px;
+  color: #555;
+  transition: color 0.3s ease-in-out;
+}
+
+
+
+/* Change icon color on hover */
+.sidebar ul li a:hover i,
+.sidebar-footer a:hover i {
+  color: blue;
+}
+.sidebar-footer .logout:hover i{
+  color: red;
+}
+
+
+
+
+/* ✖ Close Button */
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 15px;
+  right: 20px;
   background: none;
   border: none;
-  color: black;
-  font-size: 20px;
+  color: #333;
+  font-size: 22px;
   cursor: pointer;
-  box-shadow: none;
+  transition: transform 0.2s ease-in-out;
 }
 
-/* Liste des liens */
+.close-btn:hover {
+  transform: rotate(90deg);
+  color: red;
+}
+
+/* 📌 Sidebar Navigation Links */
 .sidebar ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 60px 0 0;
 }
 
 .sidebar ul li {
   padding: 15px;
-  transition: all ease-in-out 0.3s;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
-.sidebar a:hover {
-  transform: translateY(-3px);
+
+.sidebar ul li:hover {
+  background: #f0f0f0;
 }
 
-
-
+/* 🌟 Sidebar Links */
 .sidebar ul li a {
   display: flex;
   align-items: center;
-  color: black;
+  color: #333;
   text-decoration: none;
   font-size: 18px;
-  padding: 10px;
-  font-weight: bold;
-  transition: all ease-in-out 0.3s;
-  cursor: pointer;
-  box-shadow: none;
+  padding: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
 }
 
-/* Lien actif */
+.sidebar ul li a:hover {
+  background: rgba(0, 0, 255, 0.1);
+  color: blue;
+  transform: translateX(5px);
+}
+
+/* 🔵 Active Link */
 .sidebar ul li a.active {
   color: blue;
+  border-left: 4px solid blue;
+  background: rgba(0, 0, 255, 0.1);
 }
 
-/* Pied de la barre */
+/* ⚙ Sidebar Footer (Settings & Logout) */
 .sidebar-footer {
   padding: 15px;
   border-top: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar-footer a {
   display: flex;
   align-items: center;
-  color: black;
+  color: #333;
   text-decoration: none;
   font-size: 18px;
-  padding: 10px;
-  font-weight: bold;
-  box-shadow: none;
+  padding: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Bouton déconnexion */
+.sidebar-footer a:hover {
+  background: rgba(0, 0, 255, 0.1);
+  color: blue;
+  transform: translateX(5px);
+}
+
+/* 🔴 Logout Button */
 .sidebar-footer .logout {
   color: red;
+  font-weight: bold;
 }
 
-/* Affichage du menu */
+.sidebar-footer .logout:hover {
+  background: rgba(255, 0, 0, 0.1);
+  color: darkred;
+}
+
+/* 📌 Sidebar Visibility */
 .sidebar.active {
   left: 0;
 }
+
+
+
+
+
+
+
+
+.active {
+  color: #000;
+
+}
+
+.sidebar h2, .sidebar p {
+  padding: 8px 10px;
+}
+/* Close button */
+/* .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 36px;
+  color: black;
+  background: none;
+  border: none;
+  cursor: pointer;
+} */
+
+
+
+
+/* Sidebar Styling */
+.sidebar2 {
+  position: fixed;
+  top: 0;
+  right: -350px; /* Move further out */
+  width: 300px;
+  height: 100vh;
+  background:white;
+  color: black;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+/* Close Button */
+.close-btn2 {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #000;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none; /* Hidden initially */
+  z-index: 999;
+}
+
+/* Show Sidebar */
+.sidebar2.show {
+  right: 0;
+}
+
+/* Hide Sidebar (force it to move completely out) */
+.sidebar2.hide {
+  right: -320px; /* Move further left */
+}
+
+/* Show Overlay */
+.overlay.show {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .search-bar {
   display: flex;
