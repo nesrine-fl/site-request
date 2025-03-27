@@ -1,4 +1,5 @@
 
+
 document.addEventListener("DOMContentLoaded", function () {
     // Function to handle 'Créer' button click
     document.querySelectorAll(".create").forEach(button => {
@@ -25,14 +26,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
- // Nav barre
- function toggleNav() {
-    let sidebar = document.getElementById("sidebar");
-    document.getElementById("sidebar").classList.toggle("open");
-    sidebar.classList.toggle("active");
-
+// Function to open/close the sidebar
+function toggleSidebar() {
+    var sidebar = document.getElementById("sidebar");
+    // Check the current width of the sidebar and adjust it
+    if (sidebar.style.width === "250px") {
+        sidebar.style.width = "0"; // Close the sidebar
+    } else {
+        sidebar.style.width = "250px"; // Open the sidebar
+    }
 }
+
 
 
 
